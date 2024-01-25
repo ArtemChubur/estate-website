@@ -1,0 +1,16 @@
+.PartnersSection {
+    margin-top: 100px;
+}
+
+.PartnersSection h2 {
+    padding-top: 10px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 44px;
+    line-height: 66px;
+}
+
+.PartnersLogo {
+    display: flex;
+    justify-content: space-between;
+}
