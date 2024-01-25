@@ -8,16 +8,16 @@ function Properties() {
 
     async function getFlats() {
         setIsLoader(true)
-        const response = await axiosInstance.get('/flat/')
+        const response = await axiosInstance.get(`/flats/`)
         try {
             if (response.status === 200) {
                 console.log(response.data)
                 setData(response.data)
-            } else if (response.response.status === 404) {
-                alert('error')
             }
         } catch (e) {
-
+            if (response.response.status === 404) {
+                alert('error')
+            }
         } finally {
             setIsLoader(false)
         }
