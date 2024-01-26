@@ -1,14 +1,25 @@
-export const images = [
-    {
-        original: "https://picsum.photos/id/1018/1000/600/",
-        thumbnail: "https://picsum.photos/id/1018/250/150/",
-    },
-    {
-        original: "https://picsum.photos/id/1015/1000/600/",
-        thumbnail: "https://picsum.photos/id/1015/250/150/",
-    },
-    {
-        original: "https://picsum.photos/id/1019/1000/600/",
-        thumbnail: "https://picsum.photos/id/1019/250/150/",
-    },
-];
+
+import {axiosInstance} from "../api/API";
+ 
+
+
+
+
+  export const getFlat = async (id) => {
+
+   
+    try {
+        const data = await axiosInstance.get(`/flats/${id.id}`)
+        console.log(data);
+        if(data.status === 200 ){
+           console.log(data.data.flat_images); 
+        }
+        
+    } catch (error) {
+        
+    }finally{
+    
+    }
+    
+}
+ 
