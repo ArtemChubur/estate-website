@@ -1,10 +1,15 @@
 import './App.css';
 import Main from "./Pages/Main";
+import {Route, Routes} from "react-router-dom";
+import DetailPage from "./Pages/detailPage";
 
 function App() {
   return (
     <div className="App">
-      <Main />
+        <Routes>
+            <Route exact path='/' element={<Main />} />
+            <Route exact path='/flats/:id' element={<DetailPage />} />
+        </Routes>
     </div>
   );
 }
