@@ -15,7 +15,7 @@ function Properties() {
         const response = await axiosInstance.get(`/flats/`)
         try {
             if (response.status === 200) {
-                console.log(response.data.results)
+                // console.log(response.data.results)
                 setProperties(response.data.results)
             }
         } catch (e) {
