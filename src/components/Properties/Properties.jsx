@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import './Properties.css'
 import { useNavigate } from "react-router-dom";
 import {axiosInstance} from "../../api/API";
+import marker from '../../assets/01.png'
 
 function Properties() {
 
@@ -15,15 +16,17 @@ function Properties() {
         const response = await axiosInstance.get(`/flats/`)
         try {
             if (response.status === 200) {
-                // console.log(response.data.results)
                 setProperties(response.data.results)
-            }
+                setIsLoader(false)
+                console.log(response.data.results);
+            } 
         } catch (e) {
-            if (response.response.status === 404) {
-                alert('error')
+            console.log(e);
+            if (e.response.status === 404) {
+                console.log('da')
             }
         } finally {
-            setIsLoader(false)
+            
         }
     }
 
@@ -45,12 +48,27 @@ function Properties() {
                 </div>
                 :
                 <div className={'properties'}>
-                    {properties.map((item, idx) => {
+                                        {properties.map((item, idx) => {
                         return(
                             <div className={'propertiesBack'} key={idx}>
-                                <img className={'propertiesImg'} src={item.flat_images[0].image} alt=""/>
-                                <p>{item.district}</p>
-                                <button onClick={() => {goToDetailPage(item.id)}}>Подробнее</button>
+                                <img className={'propertiesImg'} src={item.flat_images.length > 1 ? item.flat_images[1].image : item.flat_images[0].image} alt=""/>
+                                <h3>{item.title}</h3>
+                                <span className='proppertiesAdres'>
+                                    <img src={marker} alt="" /> 
+                                    {item.district}
+                                </span>
+                                <div className='propertiseInfo'>
+                                    <div>
+                                        <span>Кол-во комнат: {item.rooms}</span>
+                                    </div>
+                                    <div>
+                                        <span>Общая площадь: {item.total_area}</span>
+                                    </div>
+                                </div>
+                                <div className='propertiesFooter'>
+                                    <p>{item.price}$</p>
+                                    <input value={'View Details'} type='button' onClick={() => {goToDetailPage(item.id)}} />
+                                </div>
                             </div>)
                     })}
                 </div>

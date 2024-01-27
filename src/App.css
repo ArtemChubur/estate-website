@@ -2,6 +2,7 @@
 @import "~react-image-gallery/styles/css/image-gallery.css";
 
 .App {
+    background: rgba(255, 255, 255, 1);
     margin: 0 60px;
     font-family: Poppins;
 }

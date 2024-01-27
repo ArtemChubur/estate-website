@@ -1,22 +1,74 @@
 .properties {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 0fr));
+    grid-template-columns: repeat(auto-fill, minmax(350px, 0.5fr));
+    gap: 20px;
     justify-content: center;
     align-items: start;
     margin: 0 auto;
+}
 
-    /*background-color: #ffffff;*/
-    /*box-shadow: 0 8px 70px 0 #00000012;*/
+.propertiesBack h3 {
+    margin: 0;
+    padding: 0 20px;
 }
 
 .propertiesBack {
-    box-shadow: black;
+    box-shadow: 0px 8px 70px 0px rgba(0, 0, 0, 0.07);
+    background: rgba(255, 255, 255, 1);
+    width: 362px;
+    border-radius: 10px;
 }
 
 .propertiesImg {
-
     width: 362px;
     height: 321px;
+    /* border-radius: 10px; */
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
 
+}
 
+.proppertiesAdres{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: rgba(3, 10, 27, 1);
+    padding: 0 20px;
+
+}
+
+.propertiseInfo{
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    padding: 0 20px;
+}
+
+.propertiesFooter {
+    color: rgba(0, 0, 0, 1);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.propertiesFooter p {
+    color: rgba(254, 117, 63, 1);
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 33px;
+
+}
+
+.propertiesFooter input {
+    background: rgba(46, 110, 255, 1);
+    color: rgba(255, 255, 255, 1);
+    width: 138px;
+    height: 44px;
+    left: 170px;
+    border-radius: 5px;
+    margin: 15px 0;
+    cursor: pointer;
+    border: none;
 }
