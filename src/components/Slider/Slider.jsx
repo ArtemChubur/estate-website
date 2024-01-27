@@ -3,6 +3,7 @@ import { useEffect , useState} from 'react';
 import ImageGallery from 'react-image-gallery';
 import { useParams } from 'react-router-dom';
 import {axiosInstance} from "../../api/API";
+import './Slider.css'
 
 const Slider = () => {
 
