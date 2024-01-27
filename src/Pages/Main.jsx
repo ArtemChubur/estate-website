@@ -3,6 +3,7 @@ import React from 'react';
 import Title from "../components/Title/Title";
 import Partners from "../components/Partners/Partners";
 import Properties from "../components/Properties/Properties";
+import Reviews from "../components/Reviews/Reviews";
 
 function Main() {
 
@@ -13,6 +14,7 @@ function Main() {
             <Title />
             <Partners />
             <Properties />
+            <Reviews />
         </div>
     );
 }

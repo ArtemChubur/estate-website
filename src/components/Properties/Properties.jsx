@@ -78,7 +78,7 @@ function Properties() {
                         })}
                     </div>
                 }
-                {realProperties.length !== 0 && <button onClick={() => {setCount(count + count)}}>Загрузить еще</button>}
+                {realProperties.length !== 0 && <button className='LoadMoreBtn' onClick={() => {setCount(count + count)}}>Загрузить еще</button>}
             </section>
         </div>
     );
