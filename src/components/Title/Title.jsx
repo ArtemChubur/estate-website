@@ -6,7 +6,7 @@ function Title() {
     return (
         <section>
             <div className={'title'}>
-                <h1>Find the perfect place to stay with your family</h1>
+                <h1>Найдите идеальное место для отдыха с семьей</h1>
                 <img src={img} alt=""/>
             </div>
         </section>

@@ -1,34 +1,32 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import './Properties.css'
 import { useNavigate } from "react-router-dom";
-import {axiosInstance} from "../../api/API";
+import { axiosInstance } from "../../api/API";
 import marker from '../../assets/01.png'
 
 function Properties() {
-
+    const [realProperties, setRealProperties] = useState([])
     const [properties, setProperties] = useState([])
     const [isLoader, setIsLoader] = useState(false)
+    const [count, setCount] = useState(9)
 
     const navigate = useNavigate()
 
     async function getFlats() {
         setIsLoader(true)
-        const response = await axiosInstance.get(`/flats/`)
         try {
-            if (response.status === 200) {
-                setProperties(response.data.results)
-                setIsLoader(false)
-                console.log(response.data.results);
-            } 
+            const response = await axiosInstance.get(`/flats/`)
+            setRealProperties(response.data.results)
+            const loadProperties = response.data.results.splice(0, count)
+            setProperties(loadProperties)
         } catch (e) {
             console.log(e);
-            if (e.response.status === 404) {
-                console.log('da')
-            }
         } finally {
-            
+            setIsLoader(false)
         }
     }
+
+    console.log(properties);
 
     function goToDetailPage(id) {
         navigate(`flat/${id}`)
@@ -38,41 +36,49 @@ function Properties() {
         getFlats()
     }, [])
 
+    useEffect(() => {
+        getFlats()
+    }, [count])
+
     return (
-        <div>
+        <div className='propertiesSection'>
             <section>
-                <h2>Popular Properties</h2>
+                <h2>Популярная недвижимость</h2>
                 {isLoader ?
-                <div>
-                    <p>Loading...</p>
-                </div>
-                :
-                <div className={'properties'}>
-                                        {properties.map((item, idx) => {
-                        return(
-                            <div className={'propertiesBack'} key={idx}>
-                                <img className={'propertiesImg'} src={item.flat_images.length > 1 ? item.flat_images[1].image : item.flat_images[0].image} alt=""/>
-                                <h3>{item.title}</h3>
-                                <span className='proppertiesAdres'>
-                                    <img src={marker} alt="" /> 
-                                    {item.district}
-                                </span>
-                                <div className='propertiseInfo'>
-                                    <div>
-                                        <span>Кол-во комнат: {item.rooms}</span>
+                    <div>
+                        <p>Loading...</p>
+                    </div>
+                    :
+                    <div className={'properties'}>
+                        {properties.map((item, idx) => {
+                            return (
+                                <div className={'propertiesBack'} key={idx}>
+                                    <img className={'propertiesImg'} src={item.flat_images.length > 3 ? item.flat_images[3].image : item.flat_images[0].image} alt="" />
+                                    <div className='PropertiesContainer'>
+                                        <h3>{item.title}</h3>
+                                        <div className='proppertiesAdres'>
+                                            <span>
+                                                <img src={marker} alt="" /> {item.district}
+                                            </span>
+                                        </div>
+                                        <div className='propertiseInfo'>
+                                            <div>
+                                                <span>Кол-во комнат:   {item.rooms}</span>
+                                            </div>
+                                            <div>
+                                                <span>Общая площадь: {item.total_area}</span>
+                                            </div>
+                                        </div>
+                                        <div className='propertiesFooter'>
+                                            <p>{item.price}$</p>
+                                            <input value={'Подробнее'} type='button' onClick={() => { goToDetailPage(item.id) }} />
+                                        </div>
                                     </div>
-                                    <div>
-                                        <span>Общая площадь: {item.total_area}</span>
-                                    </div>
-                                </div>
-                                <div className='propertiesFooter'>
-                                    <p>{item.price}$</p>
-                                    <input value={'View Details'} type='button' onClick={() => {goToDetailPage(item.id)}} />
-                                </div>
-                            </div>)
-                    })}
-                </div>
+                                </div>)
+                        })}
+                    </div>
                 }
+                {realProperties.length !== 0 && <button onClick={() => {setCount(count + count)}}>Загрузить еще</button>}
             </section>
         </div>
     );

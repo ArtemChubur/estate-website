@@ -7,7 +7,7 @@ function Partners() {
     return (
         <section>
             <div className={'PartnersSection'}>
-                <h2>Our Partners</h2>
+                <h2>Наши партнеры</h2>
                 <div className={'PartnersLogo'}>
                     {partners.map((item, idx) => {
                         return(
