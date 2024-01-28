@@ -1,11 +1,16 @@
 import React from 'react';
-import Slider from '../components/Slider/Slider';
+import DetailedInfo from '../components/DetailedInfo/DetailedInfo';
 
 function DetailPage() {
+
+    
+       
+    
     return (
 
         <div className='DetailPage'>
-            <Slider />
+
+            <DetailedInfo />
         </div>
     );
 }
