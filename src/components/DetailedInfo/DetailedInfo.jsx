@@ -82,7 +82,7 @@ const DetailedInfo = () => {
                     <p>Тип документа: {info.document}</p>
                     <p>Состояние: {info.condition}</p>
                     <p>Описание: {info.description}</p>
-                    <p>Цена:{info.price}</p>
+                    <p>Цена: {info.price}$</p>
                     <p>ID: {info.id}</p>
                     <button
                         className='button_contact'
