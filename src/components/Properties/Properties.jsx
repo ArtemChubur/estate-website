@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { axiosInstance } from "../../api/API";
 import marker from '../../assets/01.png'
 import CircularProgress from '@mui/material/CircularProgress';
+import { motion } from "framer-motion";
 
 function Properties() {
     const [realProperties, setRealProperties] = useState([])
@@ -41,6 +42,29 @@ function Properties() {
         getFlats()
     }, [count])
 
+
+    const container = {
+        hidden: { opacity: 1, scale: 0 },
+        visible: {
+          opacity: 1,
+          scale: 1,
+          transition: {
+            delayChildren: 0.3,
+            staggerChildren: 0.2
+          }
+        }
+      };
+
+    const item = {
+        hidden: { y: 20, opacity: 0 },
+        visible: {
+          y: 0,
+          opacity: 1
+        }
+      };
+
+
+
     return (
         <div className='propertiesSection'>
             <section>
@@ -53,7 +77,14 @@ function Properties() {
                     <div className={'properties'}>
                         {properties.map((item, idx) => {
                             return (
-                                <div className={'propertiesBack'} key={idx}>
+                                <motion.div 
+                                    className={'propertiesBack'} 
+                                    key={idx}
+                                    variants={container}
+                                    initial="hidden"
+                                    whileInView="visible"     
+                                    viewport={true}                           
+                                >
                                     <img className={'propertiesImg'} src={item.flat_images.length > 3 ? item.flat_images[3].image : item.flat_images[0].image} alt="" />
                                     <div className='PropertiesContainer'>
                                         <h3>{item.title}</h3>
@@ -75,7 +106,7 @@ function Properties() {
                                             <input value={'Подробнее'} type='button' onClick={() => { goToDetailPage(item.id) }} />
                                         </div>
                                     </div>
-                                </div>)
+                                </motion.div>)
                         })}
                     </div>
                 }
