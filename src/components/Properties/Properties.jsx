@@ -3,6 +3,7 @@ import './Properties.css'
 import { useNavigate } from "react-router-dom";
 import { axiosInstance } from "../../api/API";
 import marker from '../../assets/01.png'
+import CircularProgress from '@mui/material/CircularProgress';
 
 function Properties() {
     const [realProperties, setRealProperties] = useState([])
@@ -45,8 +46,8 @@ function Properties() {
             <section>
                 <h2>Популярная недвижимость</h2>
                 {isLoader ?
-                    <div>
-                        <p>Loading...</p>
+                    <div className='PropertiesLoader'>
+                        <CircularProgress />
                     </div>
                     :
                     <div className={'properties'}>
