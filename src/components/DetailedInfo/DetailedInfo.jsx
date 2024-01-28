@@ -31,8 +31,6 @@ const DetailedInfo = () => {
                         thumbnail: item.image,
                         thumbnailHeight: 180,
                         
-                       
-                        
                     }
                     images.push(newImg)
                 })
