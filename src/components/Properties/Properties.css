@@ -1,6 +1,6 @@
 .propertiesSection {
     align-items: center;
-    margin: 200px auto;
+    margin: 100px 0 100px 4%;
 }
 
 .propertiesSection h2 {
@@ -30,6 +30,8 @@
     width: 380px;
     height: 553px;
     border-radius: 10px;
+    border: 0.1px solid rgb(209, 209, 209);
+    border-top: none;
 }
 
 .PropertiesContainer{
@@ -95,4 +97,9 @@
 
 .LoadMoreBtn:hover, .propertiesFooter input:hover{
     background-color: rgb(29, 96, 255);
+}
+
+.PropertiesLoader{
+    display: flex;
+    justify-content: center;
 }
