@@ -11,6 +11,7 @@ function Properties() {
     const [properties, setProperties] = useState([])
     const [isLoader, setIsLoader] = useState(false)
     const [count, setCount] = useState(9)
+    // const count = 9
 
     const navigate = useNavigate()
 
@@ -28,10 +29,21 @@ function Properties() {
         }
     }
 
-    console.log(properties);
-
     function goToDetailPage(id) {
         navigate(`flat/${id}`)
+    }
+
+    function loadMore() {
+        setCount(count + 9)
+    //     setIsLoader(true)
+    //     const loadProperties = realProperties.splice(0, count)
+    //     for (let i = 0; i < loadProperties.length; i++) {
+    //         properties.push(loadProperties[i-1])
+    //         console.log(properties);
+            
+    //     }
+    //     setIsLoader(false)
+
     }
 
     useEffect(() => {
@@ -55,16 +67,6 @@ function Properties() {
         }
       };
 
-    const item = {
-        hidden: { y: 20, opacity: 0 },
-        visible: {
-          y: 0,
-          opacity: 1
-        }
-      };
-
-
-
     return (
         <div className='propertiesSection'>
             <section>
@@ -85,7 +87,7 @@ function Properties() {
                                     whileInView="visible"     
                                     viewport={true}                           
                                 >
-                                    <img className={'propertiesImg'} src={item.flat_images.length > 3 ? item.flat_images[3].image : item.flat_images[0].image} alt="" />
+                                    <img className={'propertiesImg'} src={item.flat_images?.length > 2 ? item.flat_images[3].image : item.flat_images[0].image} alt="" />
                                     <div className='PropertiesContainer'>
                                         <h3>{item.title}</h3>
                                         <div className='proppertiesAdres'>
@@ -110,7 +112,8 @@ function Properties() {
                         })}
                     </div>
                 }
-                {realProperties.length !== 0 && <button className='LoadMoreBtn' onClick={() => {setCount(count + count)}}>Загрузить еще</button>}
+                {/* {realProperties.length !== 0 && <button className='LoadMoreBtn' onClick={() => {setCount(count + count)}}>Загрузить еще</button>} */}
+                {realProperties.length !== 0 && <button className='LoadMoreBtn' onClick={loadMore}>Загрузить еще</button>}
             </section>
         </div>
     );
