@@ -57,7 +57,7 @@ const DetailedInfo = () => {
              <div className="loader_for_slider">
              <CircularProgress />
               </div>
-              : <ImageGallery className='slider'  showPlayButton={false} showFullscreenButton={false} items={images} />}</div>
+              : <ImageGallery className='slider' showBullets={true} showPlayButton={false} showFullscreenButton={false} items={images} />}</div>
             {contact &&
                 <div className="contact_div_parent">
                     <div className="contact_div">
