@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import ImageGallery from 'react-image-gallery';
 import { useParams } from 'react-router-dom';
 import { axiosInstance } from "../../api/API";
+import CircularProgress from '@mui/material/CircularProgress';
 import './DetailedInfo.css'
 
 const DetailedInfo = () => {
@@ -52,7 +53,11 @@ const DetailedInfo = () => {
     return (
         <div className='sliderchik'>
 
-            <div className='slider'> {loader ? null : <ImageGallery className='slider' showPlayButton={false} showFullscreenButton={false} items={images} />}</div>
+            <div className='slider'> {loader ?
+             <div className="loader_for_slider">
+             <CircularProgress />
+              </div>
+              : <ImageGallery className='slider'  showPlayButton={false} showFullscreenButton={false} items={images} />}</div>
             {contact &&
                 <div className="contact_div_parent">
                     <div className="contact_div">
@@ -70,26 +75,32 @@ const DetailedInfo = () => {
 
                     </div>
                 </div>
+                
+              
             }
-
-
-            <div className='info_text_parent'>
-                <div className='info_text'>
-                    <h2>{info.title}</h2>
-                    <p>Адрес: {info.district}</p>
-                    <p>Этаж: {info.floor} из {info.number_of_floors}</p>
-                    <p>Площадь: {info.total_area}м²</p>
-                    <p>Тип документа: {info.document}</p>
-                    <p>Состояние: {info.condition}</p>
-                    <p>Описание: {info.description}</p>
-                    <p>Цена: {info.price}$</p>
-                    <p>ID: {info.id}</p>
-                    <button
-                        className='button_contact'
-                        onClick={() => { setContact(true) }}
-                    >Контакты</button>
-
-                </div></div>
+                    {loader ?
+                    <div className="loader_for_text">
+                         <CircularProgress /> 
+                    </div>
+                     : <div className='info_text_parent'>
+                 <div className='info_text'>
+                     <h2>{info.title}</h2>
+                     <p>Адрес: {info.district}</p>
+                     <p>Этаж: {info.floor} из {info.number_of_floors}</p>
+                     <p>Площадь: {info.total_area}м²</p>
+                     <p>Тип документа: {info.document}</p>
+                     <p>Состояние: {info.condition}</p>
+                     <p>Описание: {info.description}</p>
+                     <p>Цена: {info.price}$</p>
+                     <p>ID: {info.id}</p>
+                     <button
+                         className='button_contact'
+                         onClick={() => { setContact(true) }}
+                     >Контакты</button>
+ 
+                 </div></div>
+           }
+                
 
         </div>
     )
