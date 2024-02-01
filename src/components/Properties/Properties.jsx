@@ -5,15 +5,16 @@ import { axiosInstance } from "../../api/API";
 import marker from '../../assets/01.png'
 import CircularProgress from '@mui/material/CircularProgress';
 import { motion } from "framer-motion";
+import {container} from "../../constants/animate";
 
 function Properties() {
     const [realProperties, setRealProperties] = useState([])
     const [properties, setProperties] = useState([])
     const [isLoader, setIsLoader] = useState(false)
     const [count, setCount] = useState(9)
-    // const count = 9
 
     const navigate = useNavigate()
+    let activProperti = 1
 
     async function getFlats() {
         setIsLoader(true)
@@ -52,20 +53,8 @@ function Properties() {
 
     useEffect(() => {
         getFlats()
+        
     }, [count])
-
-
-    const container = {
-        hidden: { opacity: 1, scale: 0 },
-        visible: {
-          opacity: 1,
-          scale: 1,
-          transition: {
-            delayChildren: 0.3,
-            staggerChildren: 0.2
-          }
-        }
-      };
 
     return (
         <div className='propertiesSection'>
@@ -80,12 +69,12 @@ function Properties() {
                         {properties.map((item, idx) => {
                             return (
                                 <motion.div 
-                                    className={'propertiesBack'} 
+                                    className={'propertiesBack'}
+                                    id={`Properti${idx + 1}`}
                                     key={idx}
                                     variants={container}
                                     initial="hidden"
-                                    whileInView="visible"     
-                                    viewport={true}                           
+                                    whileInView="visible"
                                 >
                                     <img className={'propertiesImg'} src={item.flat_images?.length > 2 ? item.flat_images[3].image : item.flat_images[0].image} alt="" />
                                     <div className='PropertiesContainer'>
@@ -112,7 +101,6 @@ function Properties() {
                         })}
                     </div>
                 }
-                {/* {realProperties.length !== 0 && <button className='LoadMoreBtn' onClick={() => {setCount(count + count)}}>Загрузить еще</button>} */}
                 {realProperties.length !== 0 && <button className='LoadMoreBtn' onClick={loadMore}>Загрузить еще</button>}
             </section>
         </div>
