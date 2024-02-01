@@ -2,6 +2,8 @@ import React from 'react'
 import './Reviews.css'
 import { reviews } from '../../constants/reviews'
 import quotes from '../../assets/left-quote.png'
+import { motion } from "framer-motion";
+import {container} from "../../constants/animate";
 
 const Reviews = () => {
     return (
@@ -13,7 +15,13 @@ const Reviews = () => {
             <div className='reviews'>
                 {reviews.map((item, idx) => {
                     return (
-                        <div className='review' key={idx}>
+                        <motion.div
+                            className='review'
+                            key={idx}
+                            variants={container}
+                            initial="hidden"
+                            whileInView="visible"
+                        >
                             <div className='reviewHeader'>
                                 <div className='reviewName'>
                                     <img src={item.avatar} alt="" />
@@ -26,8 +34,8 @@ const Reviews = () => {
                                     <img src={quotes} />
                                 </div>
                             </div>
-                            <p>{item.text}</p>
-                        </div>
+                            <p className={'reviewTxt'}>{item.text}</p>
+                        </motion.div>
                     )
                 })}
             </div>
