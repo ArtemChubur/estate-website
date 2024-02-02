@@ -5,7 +5,7 @@ import { axiosInstance } from "../../api/API";
 import marker from '../../assets/01.png'
 import CircularProgress from '@mui/material/CircularProgress';
 import { motion } from "framer-motion";
-import {container} from "../../constants/animate";
+import { container } from "../../constants/animate";
 
 function Properties() {
     const [realProperties, setRealProperties] = useState([])
@@ -35,15 +35,15 @@ function Properties() {
     }
 
     function loadMore() {
+        // setIsLoader(true)
         setCount(count + 9)
-    //     setIsLoader(true)
-    //     const loadProperties = realProperties.splice(0, count)
-    //     for (let i = 0; i < loadProperties.length; i++) {
-    //         properties.push(loadProperties[i-1])
-    //         console.log(properties);
-            
-    //     }
-    //     setIsLoader(false)
+            // const loadProperties = realProperties.splice(0, count)
+            // for (let i = 0; i <= loadProperties.length; i++) {
+            //     properties.push(loadProperties[i-1])
+            //     console.log(properties);
+
+            // }
+        // setIsLoader(false)
 
     }
 
@@ -53,7 +53,7 @@ function Properties() {
 
     useEffect(() => {
         getFlats()
-        
+
     }, [count])
 
     return (
@@ -68,7 +68,7 @@ function Properties() {
                     <div className={'properties'}>
                         {properties.map((item, idx) => {
                             return (
-                                <motion.div 
+                                <motion.div
                                     className={'propertiesBack'}
                                     id={`Properti${idx + 1}`}
                                     key={idx}

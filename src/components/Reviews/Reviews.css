@@ -35,7 +35,8 @@
 
 .reviews {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 90px;
 }
 
 .reviewName {
@@ -62,3 +63,4 @@
 .reviewTxt{
     padding-left: 20px;
 }
+
