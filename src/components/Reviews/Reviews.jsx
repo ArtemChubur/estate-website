@@ -9,7 +9,7 @@ const Reviews = () => {
     return (
         <div className='ReviewsComponent'>
             <div className='ReviewsHeaderComponent'>
-                <h2>Our valuable customer says</h2>
+                <h2>Наши клиенты говорят</h2>
                 <a href="/">Reviews</a>
             </div>
             <div className='reviews'>
@@ -21,6 +21,7 @@ const Reviews = () => {
                             variants={container}
                             initial="hidden"
                             whileInView="visible"
+                            viewport={{once: true}}
                         >
                             <div className='reviewHeader'>
                                 <div className='reviewName'>

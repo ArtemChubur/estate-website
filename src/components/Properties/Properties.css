@@ -27,6 +27,7 @@
     border-top: none;
     align-self: center;
     margin: 15px auto;
+
 }
 
 .PropertiesContainer {
@@ -36,6 +37,9 @@
 .propertiesBack h3 {
     line-height: 20px;
     margin: 20px 0 0 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .propertiesImg {
@@ -54,6 +58,9 @@
     font-size: 16px;
     line-height: 24px;
     color: rgba(3, 10, 27, 1);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .propertiseInfo {

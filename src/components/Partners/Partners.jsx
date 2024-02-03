@@ -18,6 +18,7 @@ function Partners() {
                                 variants={container}
                                 initial="hidden"
                                 whileInView="visible"
+                                viewport={{once: true}}
                             >
                                 <img src={item.logo} alt=""/>
                             </motion.div>

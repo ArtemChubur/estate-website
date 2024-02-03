@@ -22,7 +22,7 @@ const DetailedInfo = () => {
     const [info, setInfo] = useState([])
     const [contact, setContact] = useState(false)
 
-    const getFlat = async (id) => {
+    const getFlat = async () => {
         setLoader(true)
         try {
             const data = await axiosInstance.get(`/flats/${id}`)
@@ -52,6 +52,10 @@ const DetailedInfo = () => {
             setLoader(false)
         }
     }
+
+    useEffect(() => {
+        getFlat()
+    }, [])
 
     return (
         <div className='sliderchik'>
