@@ -9,7 +9,6 @@ function DetailPage() {
     return (
 
         <div className='DetailPage'>
-
             <DetailedInfo />
         </div>
     );

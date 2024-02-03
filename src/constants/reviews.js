@@ -1,18 +1,18 @@
-import avatar1 from '../assets/Ellipse 11.png'
-import avatar2 from '../assets/Ellipse 11 (1).png'
+import avatar1 from '../assets/Даниель.jpg'
+import avatar2 from '../assets/никитаКологривый.png'
 
 export const reviews = [
     {
         avatar: avatar2,
-        name: 'Justin Lee',
-        title: 'Products Designer at Ito',
-        text: 'A good real estate agent doesn’t disappear once the closing IN signed.Buying a bigger home doesn’t necessarily mean spendi more money.Been there. Done that. Sold. Bought Bringing It All Together.',
+        name: 'Никита Кологривый',
+        title: 'Я здесь за эту компанию горой стоял',
+        text: 'Братва из агентства недвижимости – просто огонь! Кайфово нашли квартирку, сделка как на мажоре. Риэлторы – настоящие боссы, кто ищет жилье – только к ним! Гоп-гоп, рекомендую всем кайфовать с ними!',
     },
     {
         avatar: avatar1,
-        name: 'Angel Cathe',
-        title: 'Products Designer at Ito',
-        text: 'A good real estate agent doesn’t disappear once the closing IN signed.Buying a bigger home doesn’t necessarily mean spendi more money.Been there. Done that. Sold. Bought be Bringing It All Together there.'
+        name: 'Даниель Маманасиров',
+        title: 'Крутая Компания, ставлю лайк',
+        text: `Эта контора – моя любовь! Как Жантай, я год назад взял квартиру и живу там, как король с Линуксом. Сделка была космос, ребята знают своё дело. Всем советую, если хочешь жить не хуже, чем на лучшей операционке!`
     }
 ]
 
