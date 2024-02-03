@@ -22,6 +22,8 @@ const DetailedInfo = () => {
     const [info, setInfo] = useState([])
     const [contact, setContact] = useState(false)
 
+    console.log(contact)
+
     const getFlat = async () => {
         setLoader(true)
         try {
@@ -54,7 +56,9 @@ const DetailedInfo = () => {
     }
 
     useEffect(() => {
+
         getFlat()
+
     }, [])
 
     return (
@@ -65,29 +69,35 @@ const DetailedInfo = () => {
              <CircularProgress />
               </div>
               : <ImageGallery className='slider' showBullets={true} showPlayButton={false} showFullscreenButton={false} items={images} />}</div>
-            {contact && 
+            {contact &&
                 <motion.div
-                variants={container}
-                initial="hidden"
-                whileInView="visible"
-                 className="contact_div_parent">
+                    variants={container}
+                    initial="hidden"
+                    whileInView="visible"
+                    className="contact_div_parent"
+                >
+
                     <div className="contact_div">
+
                         <button
-                        className='button_cancel'
-                            onClick={() => {
-                                setContact(false)
-                            }}
-                        ><h2>{CloseIcon}</h2></button>
+                            className='button_cancel'
+                            onClick={() => setContact(false) }
+                        >
+                            <CloseIcon />
+                        </button>
+
                         <div className="contact_info">
-                            <h3>Реалтор: {info.realtor?.FIO}</h3>
-                            <p>Телефон : {info.realtor?.phone}</p>
+                            <h3>Реалтор: {info?.realtor?.FIO}</h3>
+                            <p>Телефон : {info?.realtor?.phone}</p>
                         </div>
 
 
                     </div>
+
+
                 </motion.div>
-                
-              
+
+
             }
                     {loader ?
                     <div className="loader_for_text">
@@ -110,8 +120,8 @@ const DetailedInfo = () => {
                      <p>ID: {info.id}</p>
                      <button
                          className='button_contact'
-                         onClick={() => { setContact(!contact) }}
-                     >Контакты</button>
+                         onClick={() => setContact(!contact)}
+                     >Контакты.</button>
  
                  </div></motion.div>
            }
