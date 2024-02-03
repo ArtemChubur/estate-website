@@ -53,6 +53,11 @@ const DetailedInfo = () => {
         }
     }
 
+    useEffect(() => {
+        getFlat(id)
+
+    }, [])
+
     return (
         <div className='sliderchik'>
 
