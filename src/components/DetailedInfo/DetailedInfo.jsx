@@ -4,6 +4,8 @@ import ImageGallery from 'react-image-gallery';
 import { useParams } from 'react-router-dom';
 import { axiosInstance } from "../../api/API";
 import CircularProgress from '@mui/material/CircularProgress';
+import { motion } from "framer-motion";
+import { container } from "../../constants/animate";
 import './DetailedInfo.css'
 
 const DetailedInfo = () => {
@@ -58,8 +60,12 @@ const DetailedInfo = () => {
              <CircularProgress />
               </div>
               : <ImageGallery className='slider' showBullets={true} showPlayButton={false} showFullscreenButton={false} items={images} />}</div>
-            {contact &&
-                <div className="contact_div_parent">
+            {contact && 
+                <motion.div
+                variants={container}
+                initial="hidden"
+                whileInView="visible"
+                 className="contact_div_parent">
                     <div className="contact_div">
                         <button
                         className='button_cancel'
@@ -74,7 +80,7 @@ const DetailedInfo = () => {
 
 
                     </div>
-                </div>
+                </motion.div>
                 
               
             }
@@ -82,7 +88,11 @@ const DetailedInfo = () => {
                     <div className="loader_for_text">
                          <CircularProgress /> 
                     </div>
-                     : <div className='info_text_parent'>
+                     : <motion.div
+                     variants={container}
+                     initial="hidden"
+                     whileInView="visible"
+                     className='info_text_parent'>
                  <div className='info_text'>
                      <h2>{info.title}</h2>
                      <p>Адрес: {info.district}</p>
@@ -98,10 +108,10 @@ const DetailedInfo = () => {
                          onClick={() => { setContact(true) }}
                      >Контакты</button>
  
-                 </div></div>
+                 </div></motion.div>
            }
                 
-
+              
         </div>
     )
 }
