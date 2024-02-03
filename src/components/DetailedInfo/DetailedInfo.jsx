@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import ImageGallery from 'react-image-gallery';
-import { useParams } from 'react-router-dom';
+import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import { axiosInstance } from "../../api/API";
 import CircularProgress from '@mui/material/CircularProgress';
 import { motion } from "framer-motion";
@@ -11,6 +11,7 @@ import './DetailedInfo.css'
 const DetailedInfo = () => {
 
     const { id } = useParams();
+    const navigate = useNavigate()
     // const images = []
 
     const [loader, setLoader] = useState(false)
@@ -41,7 +42,10 @@ const DetailedInfo = () => {
             }
 
         } catch (error) {
-
+            if(error.status === 404){
+                navigate('/')
+            }
+          
         } finally {
             setLoader(false)
         }
@@ -105,7 +109,7 @@ const DetailedInfo = () => {
                      <p>ID: {info.id}</p>
                      <button
                          className='button_contact'
-                         onClick={() => { setContact(true) }}
+                         onClick={() => { setContact(!contact) }}
                      >Контакты</button>
  
                  </div></motion.div>
