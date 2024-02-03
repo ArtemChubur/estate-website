@@ -6,10 +6,12 @@ import { axiosInstance } from "../../api/API";
 import CircularProgress from '@mui/material/CircularProgress';
 import { motion } from "framer-motion";
 import { container } from "../../constants/animate";
+import CloseIcon from '@mui/icons-material/Close';
 import './DetailedInfo.css'
 
-const DetailedInfo = () => {
 
+
+const DetailedInfo = () => {
     const { id } = useParams();
     const navigate = useNavigate()
     // const images = []
@@ -51,11 +53,6 @@ const DetailedInfo = () => {
         }
     }
 
-    useEffect(() => {
-        getFlat(id)
-
-    }, [])
-
     return (
         <div className='sliderchik'>
 
@@ -76,7 +73,7 @@ const DetailedInfo = () => {
                             onClick={() => {
                                 setContact(false)
                             }}
-                        ><h2>X</h2></button>
+                        ><h2>{CloseIcon}</h2></button>
                         <div className="contact_info">
                             <h3>Реалтор: {info.realtor?.FIO}</h3>
                             <p>Телефон : {info.realtor?.phone}</p>
