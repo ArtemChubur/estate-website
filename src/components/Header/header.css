@@ -1,20 +1,24 @@
 .header {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 50px;
+    margin: 10px 0 50px 0;
 }
 
-
-.heder-button {
+.header-button {
     width: 251px;
     height: 54px;
     background-color: #2E6EFF;
     border: none;
     color: white;
     border-radius: 8px;
+    cursor: pointer;
 }
 
-.qweqwe {
+.header-button:hover{
+    background-color: rgb(29, 96, 255);
+}
+
+.header-right {
     display: flex;
     gap: 20px;
     align-items: center;
@@ -24,11 +28,79 @@
     text-decoration: none;
     color: black;
 }
+
+.header-link-activ {
+    color: #FE753F;
+    text-decoration: none;
+}
+
 .header-link:hover {
-    cursor:pointer;
    color: #FE753F;
 }
-.a-abous{
-    text-decoration: none;
-    color: black;
+
+.header-modal-window{
+    margin: -10px -60px;
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    background-color: rgba(72, 71, 71, 0.88);
+}
+
+.header-modal-window{
+    display: flex;
+    justify-content: center;
+    padding-top: 10%;
+}
+
+.header-modal-window .headerParentsForm {
+    background-color: white;
+    width: 60%;
+    height: 50%;
+    border-radius: 10px;
+}
+
+.header-modal-window .headerParentsForm form {
+    display: flex;
+    justify-content: center;
+    margin-top: 12%;
+}
+
+.header-modal-window form input{
+    margin: 0 5px;
+    width: 200px;
+    height: 50px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid #2E6EFF;
+
+}
+
+.header-modal-window .headerParentsForm form button {
+    background: #2E6EFF;
+    margin: 0 5px;
+    width: 200px;
+    height: 55px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.header-modal-window .headerParentsForm form button:hover {
+    background-color: rgb(29, 96, 255);
+}
+
+.header-close-btn{
+    border: none;
+    background: none;
+    padding: 5px 10px;
+    float: right;
+    cursor: pointer;
+}
+
+.modalWindowError {
+    font-size: 24px;
+    text-align: center;
+    color: red;
+    margin-top: 10%;
 }

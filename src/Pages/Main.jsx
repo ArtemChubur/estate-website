@@ -6,9 +6,6 @@ import Properties from "../components/Properties/Properties";
 import Reviews from "../components/Reviews/Reviews";
 
 function Main() {
-
-
-
     return (
         <div>
             <Title />
