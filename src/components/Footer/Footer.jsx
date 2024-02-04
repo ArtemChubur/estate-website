@@ -9,7 +9,7 @@ const Footer = () => {
             <div className='left-fotr'>
                 <div>
                     <img src={logo} alt=""/>
-                    <h4>Contrary to popular  is not simply random text. It has </h4>
+                    <p>Contrary to popular  is not simply random text. It has </p>
                         { Socials.map((item,idx)=> {
                         return(
                             <div
