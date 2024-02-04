@@ -94,7 +94,7 @@ function Properties() {
                                         </div>
                                         <div className='propertiesFooter'>
                                             <p>{item.price}$</p>
-                                            <input value={'Подробнее'} type='button' onClick={() => { goToDetailPage(item.id) }} />
+                                            <a href={`flat/${item.id}`}><input value={'Подробнее'} type='button' /></a>
                                         </div>
                                     </div>
                                 </motion.div>)
