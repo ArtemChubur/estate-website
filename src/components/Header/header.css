@@ -1,7 +1,12 @@
 .header {
+    position: fixed;
     display: flex;
     justify-content: space-between;
     margin: 10px 0 50px 0;
+    background-color: white;
+    width: 92%;
+    top: -10px;
+    z-index: 100;
 }
 
 .header-button {
