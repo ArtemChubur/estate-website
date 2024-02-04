@@ -1,13 +1,23 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import CloseIcon from '@mui/icons-material/Close';
 import logo from "../../assets/logo.png"
 import './header.css'
+import {useLocation, useParams} from "react-router-dom";
 
 export const Header = ({page}) => {
-    const activePage = page
+    const [activePage, setActivePage] = useState(false);
+    const route = useLocation()
+    console.log(route)
+
+    useEffect(() => {
+        if (route.pathname === '/about') {
+            setActivePage(true)
+        } else {
+            setActivePage(false)
+        }}, [])
 
     const [activeModalWindow, setActiveModalWindow] = useState(false);
-    const [ticketError, setTicketError] = useState(true);
+    const [ticketError, setTicketError] = useState(false);
 
     return (
         <div>
@@ -29,7 +39,7 @@ export const Header = ({page}) => {
                             <form>
                                 <input placeholder={'Ваше имя'} type="text"/>
                                 <input pattern='0[0-9]{3}[0-9]{3}[0-9]{3}' type="tel" placeholder={'Номер телефона'}/>
-                                <button type="button">Отправить</button>
+                                <button onClick={() => {setTicketError(true)}} type="button">Отправить</button>
                             </form>
                         </div>
                         }
@@ -39,13 +49,11 @@ export const Header = ({page}) => {
             <header className="header">
                 <a href="../"><img src={logo} alt="" /></a>
                 <div className="header-right">
-                    <a onClick={() => {sessionStorage.setItem('page', 'about')}} href="../" className={`header-link ${activePage || 'header-link-activ'}`}>Home</a>
-                    <a onClick={() => {sessionStorage.setItem('page', 'home')}} href={'/about'} className={`header-link ${activePage && 'header-link-activ'}`}>About Us</a>
+                    <a href="../" className={`header-link ${activePage || 'header-link-activ'}`}>Home</a>
+                    <a href={'/about'} className={`header-link ${activePage && 'header-link-activ'}`}>About Us</a>
                     <button onClick={() => {setActiveModalWindow(true)}} className="header-button">+Добавить обьявление</button>
                 </div>
             </header>
         </div>
     )
-
-
 }
