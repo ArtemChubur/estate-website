@@ -6,23 +6,15 @@ import DetailPage from "./Pages/detailPage";
 import {Header} from "./components/Header/header";
 
 function App() {
-    const [activePage, setActivePage] = useState(false);
-    const page2 = sessionStorage.getItem('page')
-    useEffect(() => {
-        if (page2 === 'about') {
-            setActivePage(false)
-        } else {
-            setActivePage(true)
-        }
-    });
     return (
     <div className="App">
         <Header
-            page={activePage}
+            // page={!activePage}
         />
         <Routes>
             <Route exact path='/' element={<Main />} />
             <Route exact path='/flat/:id' element={<DetailPage />} />
+            <Route exact path='/:about' element={<DetailPage />} />
         </Routes>
     </div>
   );
