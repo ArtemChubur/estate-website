@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import CloseIcon from '@mui/icons-material/Close';
 import logo from "../../assets/logo.png"
+import bibi from "../../assets/бибизьяна.gif.mp4"
 import './header.css'
 import {useLocation, useParams} from "react-router-dom";
 
@@ -31,8 +32,11 @@ export const Header = ({page}) => {
                             }}
                             className={'header-close-btn'}><CloseIcon /></button>
                         {ticketError ?
-                        <div>
+                        <div className='text_in_the_alert'>
                             <p className={'modalWindowError'}>Ваша заявка не была отправлена, так как нам не предоставили backend для этого.</p>
+                            <img className='bibizianky' src="https://3.bp.blogspot.com/-PWZdxomZ6uc/Wdj4shYEQ0I/AAAAAAALGz0/Mo-gm00xJvIbG8brcI7UF40C0-xHVcqYQCLcBGAs/s1600/AW567119_06.gif" alt=""/>
+
+
                         </div>
                         :
                         <div>
@@ -49,8 +53,11 @@ export const Header = ({page}) => {
             <header className="header">
                 <a href="../"><img src={logo} alt="" /></a>
                 <div className="header-right">
-                    <a href="../" className={`header-link ${activePage || 'header-link-activ'}`}>Home</a>
+                    <a href="../"
+                       className={`header-link ${activePage || 'header-link-activ'}`}>Home</a>
+
                     <a href={'/about'} className={`header-link ${activePage && 'header-link-activ'}`}>About Us</a>
+
                     <button onClick={() => {setActiveModalWindow(true)}} className="header-button">+Добавить обьявление</button>
                 </div>
             </header>
