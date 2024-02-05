@@ -76,7 +76,7 @@ function Properties() {
                                     initial="hidden"
                                     whileInView="visible"
                                 >
-                                    <img className={'propertiesImg'} src={item.flat_images?.length > 2 ? item.flat_images[3].image : item.flat_images[0].image} alt="" />
+                                    <img className={'propertiesImg'} src={item.flat_images?.length > 2 ? item.flat_images[0].image : item.flat_images[0].image} alt="" />
                                     <div className='PropertiesContainer'>
                                         <h3>{item.title}</h3>
                                         <div className='proppertiesAdres'>
