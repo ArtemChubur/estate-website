@@ -35,7 +35,7 @@ export const Header = ({page}) => {
                         <div className='text_in_the_alert'>
                             <p className={'modalWindowError'}>Ваша заявка не была отправлена, так как нам не предоставили backend для этого.</p>
 
-                            <img className='bibizyanki_gif' src={bibizyanki} alt="" loop={1}/>
+                            <img className='bibizyanki_gif' src={bibizyanki} alt="fdf" autoplay/>
 
                         </div>
                         :

@@ -32,7 +32,7 @@ h2 {
     justify-content: center;
     align-items: start;
     width: 650px;
-    height: 650px;
+    height: auto;
     font-family:  'Roboto', sans-serif;
 }
 

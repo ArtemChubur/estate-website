@@ -22,39 +22,40 @@ const Reviews = (callbackfn, thisArg) => {
             <div className='reviews'>
                 <>
                     <Swiper
-                        slidesPerView={2}
+                        slidesPerView={"auto"}
+                        loop
                         grabCursor={true}
-                        keyboard={{enabled: true,}}
+                        keyboard={{ enabled: true }}
                         navigation={true}
-                        pagination={{clickable: true,}}
+                        pagination={{ clickable: true }}
                         modules={[Keyboard, Scrollbar, Navigation, Pagination]}
                         className="mySwiper"
                     >
                         {reviews.map((item, idx) => {
                             return(
                                 <SwiperSlide>
-                                            <motion.div
-                                                className='review'
-                                                key={idx}
-                                                variants={container}
-                                                initial="hidden"
-                                                whileInView="visible"
-                                                viewport={{once: true}}
-                                            >
-                                                <div className='reviewHeader'>
-                                                    <div className='reviewName'>
-                                                        <img src={item.avatar} alt="" />
-                                                        <div>
-                                                            <h4>{item.name}</h4>
-                                                            <p>{item.title}</p>
-                                                        </div>
-                                                    </div>
-                                                    <div className='reviewImgQuotes'>
-                                                        <img src={quotes} />
-                                                    </div>
+                                    <motion.div
+                                        className='review'
+                                        key={idx}
+                                        variants={container}
+                                        initial="hidden"
+                                        whileInView="visible"
+                                        viewport={{once: true}}
+                                    >
+                                        <div className='reviewHeader'>
+                                            <div className='reviewName'>
+                                                <img src={item.avatar} alt="" />
+                                                <div>
+                                                    <h4>{item.name}</h4>
+                                                    <p>{item.title}</p>
                                                 </div>
-                                                <p className={'reviewTxt'}>{item.text}</p>
-                                            </motion.div>
+                                            </div>
+                                            <div className='reviewImgQuotes'>
+                                                <img src={quotes} />
+                                            </div>
+                                        </div>
+                                        <p className={'reviewTxt'}>{item.text}</p>
+                                    </motion.div>
                                 </SwiperSlide>
                             )
                         })}
