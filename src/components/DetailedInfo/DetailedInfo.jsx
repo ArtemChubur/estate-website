@@ -8,6 +8,8 @@ import { motion } from "framer-motion";
 import { container } from "../../constants/animate";
 import CloseIcon from '@mui/icons-material/Close';
 import './DetailedInfo.css'
+import {showSuccess} from "../../utils/Alert";
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -38,67 +40,51 @@ const DetailedInfo = () => {
                         originalHeight: 433,
                         thumbnail: item.image,
                         thumbnailHeight: 180,
-
                     }
                     images.push(newImg)
                 })
-
             }
 
         } catch (error) {
             if(error.status === 404){
                 navigate('/')
             }
-          
         } finally {
             setLoader(false)
         }
     }
 
     useEffect(() => {
-
         getFlat()
-
     }, [])
-
     return (
         <div className='sliderchik'>
-
             <div className='slider'> {loader ?
              <div className="loader_for_slider">
              <CircularProgress />
               </div>
               : <ImageGallery className='slider' showBullets={true} showPlayButton={false} showFullscreenButton={false} items={images} />}</div>
-            {contact &&
-                <motion.div
-                    variants={container}
-                    initial="hidden"
-                    whileInView="visible"
-                    className="contact_div_parent"
-                >
-
-                    <div className="contact_div">
-
-                        <button
-                            className='button_cancel'
-                            onClick={() => setContact(false) }
-                        >
-                            <CloseIcon />
-                        </button>
-
-                        <div className="contact_info">
-                            <h3>Реалтор: {info?.realtor?.FIO}</h3>
-                            <p>Телефон : {info?.realtor?.phone}</p>
-                        </div>
-
-
-                    </div>
-
-
-                </motion.div>
-
-
-            }
+            {/*{contact &&*/}
+            {/*    <motion.div*/}
+            {/*        variants={container}*/}
+            {/*        initial="hidden"*/}
+            {/*        whileInView="visible"*/}
+            {/*        className="contact_div_parent"*/}
+            {/*    >*/}
+            {/*        <div className="contact_div">*/}
+            {/*            <button*/}
+            {/*                className='button_cancel'*/}
+            {/*                onClick={() => setContact(false) }*/}
+            {/*            >*/}
+            {/*                <CloseIcon />*/}
+            {/*            </button>*/}
+            {/*            <div className="contact_info">*/}
+            {/*                <h3>Реалтор: {info?.realtor?.FIO}</h3>*/}
+            {/*                <p>Телефон : {info?.realtor?.phone}</p>*/}
+            {/*            </div>*/}
+            {/*        </div>*/}
+            {/*    </motion.div>*/}
+            {/*}*/}
                     {loader ?
                     <div className="loader_for_text">
                          <CircularProgress /> 
@@ -120,8 +106,11 @@ const DetailedInfo = () => {
                      <p>ID: {info.id}</p>
                      <button
                          className='button_contact'
-                         onClick={() => setContact(!contact)}
-                     >Контакты.</button>
+                         // onClick={() => setContact(!contact)}
+                         onClick={() => showSuccess(`Риелтор: ${info?.realtor?.FIO}`, `Телефон: ${info?.realtor?.phone}`)}
+                     >
+                         Контакты.
+                     </button>
  
                  </div></motion.div>
            }
