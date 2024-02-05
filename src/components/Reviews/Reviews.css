@@ -12,10 +12,10 @@
     height: 260px;
     border: 1px solid rgb(230, 230, 230);
     border-radius: 10px;
-
+    margin-left: 25px;
 }
 
-.ReviewsHeaderComponent a {
+.ReviewsHeaderComponent p {
     margin: 30px 0;
     font-weight: 600;
     color: rgba(254, 117, 63, 1);
@@ -35,8 +35,8 @@
 
 .reviews {
     display: flex;
-    justify-content: center;
-    gap: 90px;
+    justify-content: space-between;
+    /*gap: 90px;*/
 }
 
 .reviewName {
@@ -65,3 +65,6 @@
     padding-left: 20px;
 }
 
+.swiper-wrapper{
+    align-content: center;
+}

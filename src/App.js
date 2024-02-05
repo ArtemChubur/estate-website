@@ -9,9 +9,7 @@ import Footer from "./components/Footer/Footer";
 function App() {
     return (
     <div className="App">
-        <Header
-            // page={!activePage}
-        />
+        <Header/>
         <Routes>
             <Route exact path='/' element={<Main />} />
             <Route exact path='/flat/:id' element={<DetailPage />} />
