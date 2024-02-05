@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import CloseIcon from '@mui/icons-material/Close';
 import logo from "../../assets/logo.png"
-import bibizyanki from "../../assets/bibizyanki.gif"
+import bibi from "../../assets/бибизьяна.gif.mp4"
 import './header.css'
 import {useLocation, useParams} from "react-router-dom";
 
@@ -34,8 +34,8 @@ export const Header = ({page}) => {
                         {ticketError ?
                         <div className='text_in_the_alert'>
                             <p className={'modalWindowError'}>Ваша заявка не была отправлена, так как нам не предоставили backend для этого.</p>
+                            <img className='bibizianky' src="https://3.bp.blogspot.com/-PWZdxomZ6uc/Wdj4shYEQ0I/AAAAAAALGz0/Mo-gm00xJvIbG8brcI7UF40C0-xHVcqYQCLcBGAs/s1600/AW567119_06.gif" alt=""/>
 
-                            <img className='bibizyanki_gif' src={bibizyanki} alt="fdf" autoplay/>
 
                         </div>
                         :
