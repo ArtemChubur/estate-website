@@ -14,12 +14,14 @@ import { Keyboard, Scrollbar, Navigation, Pagination } from 'swiper/modules';
 
 const Reviews = (callbackfn, thisArg) => {
     return (
-        <div className='ReviewsComponent'>
+        <div id={'ReviewsSection'} className='ReviewsComponent'>
             <div className='ReviewsHeaderComponent'>
                 <h2>Наши клиенты говорят</h2>
                 <p href="/">Reviews</p>
             </div>
-            <div className='reviews'>
+            <div
+                className='reviews'
+            >
                 <>
                     <Swiper
                         slidesPerView={"auto"}
@@ -33,14 +35,12 @@ const Reviews = (callbackfn, thisArg) => {
                     >
                         {reviews.map((item, idx) => {
                             return(
-                                <SwiperSlide>
+                                <SwiperSlide key={idx}>
                                     <motion.div
                                         className='review'
-                                        key={idx}
                                         variants={container}
                                         initial="hidden"
                                         whileInView="visible"
-                                        viewport={{once: true}}
                                     >
                                         <div className='reviewHeader'>
                                             <div className='reviewName'>

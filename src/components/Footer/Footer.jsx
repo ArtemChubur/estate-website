@@ -12,10 +12,8 @@ const Footer = () => {
                     <p>Contrary to popular  is not simply random text. It has </p>
                         { Socials.map((item,idx)=> {
                         return(
-                            <div
-                                className='social-media'
-                                key={idx}>
-                                <img src={item.logo} alt=""/>
+                            <div className='social-media' key={idx}>
+                                <a target='_blank' href={item.link}><img src={item.logo} alt=""/></a>
                             </div>
                         )
                         })}
@@ -24,27 +22,27 @@ const Footer = () => {
 
             <div className='right-fotr'>
                         <ul>
-                            <li><h2>About</h2></li>
-                            <li>Company</li>
-                            <li>Team</li>
-                            <li>Career</li>
-                            <li>Blogs</li>
+                            <li><h2>О нас</h2></li>
+                            <li><a href="/about">Компания</a></li>
+                            <li><a href="/#ReviewsSection">Команда</a></li>
+                            <li><a href="/#ReviewsSection">Карьера</a></li>
+                            <li><a href="/about">Блог</a></li>
 
                         </ul>
                         <ul>
-                            <li><h2>Products</h2></li>
-                            <li>E-Books</li>
-                            <li>Preasantation</li>
-                            <li>Management</li>
-                            <li>Dashboard</li>
+                            <li><h2>Продукты</h2></li>
+                            <li><a href="/#propertiesSection">E-Books</a></li>
+                            <li><a href="/#propertiesSection">Объявления</a></li>
+                            <li><a href="/#propertiesSection">Управление</a></li>
+                            <li><a href="/">Dashboard</a></li>
 
                         </ul>
                         <ul>
-                            <li><h2>Address</h2></li>
-                            <li>Country Delevery</li>
-                            <li>Counter Beach Post</li>
+                            <li><h2>Адрес</h2></li>
+                            <li>г. Бишкек</li>
+                            <li>Улица ** 17</li>
                             <li>www.itobd.com</li>
-                            <li>+880176565655</li>
+                            <li>+996 801 765 656</li>
                         </ul>
             </div>
 
