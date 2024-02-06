@@ -20,7 +20,7 @@ function Partners() {
                                 whileInView="visible"
                                 viewport={{once: true}}
                             >
-                                <img src={item.logo} alt=""/>
+                                <img src={item} alt=""/>
                             </motion.div>
                         )
                     })}

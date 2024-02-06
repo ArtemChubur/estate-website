@@ -57,7 +57,7 @@ function Properties() {
     }, [count])
 
     return (
-        <div className='propertiesSection'>
+        <div id={'propertiesSection'} className='propertiesSection'>
             <section>
                 <h2>Популярная недвижимость</h2>
                 {isLoader ?
