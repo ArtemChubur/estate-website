@@ -67,7 +67,7 @@ const DetailedInfo = () => {
                             <p>Телефон : {info.realtor?.phone}</p>
                         </div> 
 
-{/* ывщаоываоыщваоыщвашоыщ */}
+
                     </div>
                 </div>
             }
