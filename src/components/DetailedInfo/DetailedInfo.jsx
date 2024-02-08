@@ -65,9 +65,9 @@ const DetailedInfo = () => {
                         <div className="contact_info">
                             <h3>Реалтор: {info.realtor?.FIO}</h3>
                             <p>Телефон : {info.realtor?.phone}</p>
-                        </div>
+                        </div> 
 
-
+{/* ывщаоываоыщваоыщвашоыщ */}
                     </div>
                 </div>
             }
