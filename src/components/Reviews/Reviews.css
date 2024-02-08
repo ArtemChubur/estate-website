@@ -1,7 +1,3 @@
-.ReviewsComponent{
-    margin-bottom: 150px;
-}
-
 .ReviewsHeaderComponent{
     display: flex;
     justify-content: space-between;
@@ -12,10 +8,11 @@
     height: 260px;
     border: 1px solid rgb(230, 230, 230);
     border-radius: 10px;
+    /*margin-left: 25px;*/
 
 }
 
-.ReviewsHeaderComponent a {
+.ReviewsHeaderComponent p {
     margin: 30px 0;
     font-weight: 600;
     color: rgba(254, 117, 63, 1);
@@ -36,6 +33,7 @@
 .reviews {
     display: flex;
     justify-content: space-between;
+    /*gap: 90px;*/
 }
 
 .reviewName {
@@ -44,17 +42,30 @@
 }
 
 .reviewName div {
-    margin: 0 0 0 20px;
+    margin: 10px 0 0 20px;
 }
 
 .reviewName img {
     width: 74px;
     height: 74px;
     margin: 20px 0 0 20px;
+    border-radius: 1000px;
 }
 
 .review p {
-    margin: -15px -20px 0 0px;
+    margin: -15px -20px 0 0;
     width: 488px;
     height: 96px;
+}
+
+.reviewTxt{
+    padding-left: 20px;
+}
+
+.swiper-wrapper{
+    gap: 2%;
+}
+
+.swiper-slide {
+    width: max-content !important;
 }

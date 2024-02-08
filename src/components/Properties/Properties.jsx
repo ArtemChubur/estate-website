@@ -3,6 +3,9 @@ import './Properties.css'
 import { useNavigate } from "react-router-dom";
 import { axiosInstance } from "../../api/API";
 import marker from '../../assets/01.png'
+import CircularProgress from '@mui/material/CircularProgress';
+import { motion } from "framer-motion";
+import { container } from "../../constants/animate";
 
 function Properties() {
     const [realProperties, setRealProperties] = useState([])
@@ -11,6 +14,7 @@ function Properties() {
     const [count, setCount] = useState(9)
 
     const navigate = useNavigate()
+    let activProperti = 1
 
     async function getFlats() {
         setIsLoader(true)
@@ -26,10 +30,21 @@ function Properties() {
         }
     }
 
-    console.log(properties);
-
     function goToDetailPage(id) {
         navigate(`flat/${id}`)
+    }
+
+    function loadMore() {
+        // setIsLoader(true)
+        setCount(count + 9)
+            // const loadProperties = realProperties.splice(0, count)
+            // for (let i = 0; i <= loadProperties.length; i++) {
+            //     properties.push(loadProperties[i-1])
+            //     console.log(properties);
+
+            // }
+        // setIsLoader(false)
+
     }
 
     useEffect(() => {
@@ -38,22 +53,30 @@ function Properties() {
 
     useEffect(() => {
         getFlats()
+
     }, [count])
 
     return (
-        <div className='propertiesSection'>
+        <div id={'propertiesSection'} className='propertiesSection'>
             <section>
                 <h2>Популярная недвижимость</h2>
                 {isLoader ?
-                    <div>
-                        <p>Loading...</p>
+                    <div className='PropertiesLoader'>
+                        <CircularProgress />
                     </div>
                     :
                     <div className={'properties'}>
                         {properties.map((item, idx) => {
                             return (
-                                <div className={'propertiesBack'} key={idx}>
-                                    <img className={'propertiesImg'} src={item.flat_images.length > 3 ? item.flat_images[3].image : item.flat_images[0].image} alt="" />
+                                <motion.div
+                                    className={'propertiesBack'}
+                                    id={`Properti${idx + 1}`}
+                                    key={idx}
+                                    variants={container}
+                                    initial="hidden"
+                                    whileInView="visible"
+                                >
+                                    <img className={'propertiesImg'} src={item.flat_images?.length > 2 ? item.flat_images[0].image : item.flat_images[0].image} alt="" />
                                     <div className='PropertiesContainer'>
                                         <h3>{item.title}</h3>
                                         <div className='proppertiesAdres'>
@@ -71,14 +94,14 @@ function Properties() {
                                         </div>
                                         <div className='propertiesFooter'>
                                             <p>{item.price}$</p>
-                                            <input value={'Подробнее'} type='button' onClick={() => { goToDetailPage(item.id) }} />
+                                            <a href={`flat/${item.id}`}><input value={'Подробнее'} type='button' /></a>
                                         </div>
                                     </div>
-                                </div>)
+                                </motion.div>)
                         })}
                     </div>
                 }
-                {realProperties.length !== 0 && <button className='LoadMoreBtn' onClick={() => {setCount(count + count)}}>Загрузить еще</button>}
+                {realProperties.length !== 0 && <button className='LoadMoreBtn' onClick={loadMore}>Загрузить еще</button>}
             </section>
         </div>
     );

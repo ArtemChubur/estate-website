@@ -1,0 +1,37 @@
+.left-fotr {
+    height: 189px;
+    width: 260px;
+}
+.social-media{
+    display: inline-block;
+    padding-right: 10px  ;
+}
+
+.right-fotr {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 250px;
+
+}
+
+.Footer {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
+    align-items: center;
+    z-index: 100;
+    margin-top: 100px;
+}
+
+ul {
+    list-style-type: none;
+
+}
+li{
+    padding-top: 15px;
+}
+
+ul a {
+    text-decoration: none;
+    color: black;
+}

@@ -1,8 +1,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 @import "~react-image-gallery/styles/css/image-gallery.css";
 
+*{
+    scrollbar-color: rgba(46, 110, 255, 1) rgba(0, 0, 0, 0.089);
+}
+
+::-webkit-scrollbar {
+    background-color: rgba(0, 0, 0, 0.089);
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(46, 110, 255, 1);
+    border-radius: 10px;
+}
+
 .App {
     background: rgba(255, 255, 255, 1);
-    margin: 0 60px;
-    font-family: Poppins;
+    margin: 0 60px 0 60px;
+    font-family: 'Roboto', sans-serif;
 }
+

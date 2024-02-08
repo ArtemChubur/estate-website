@@ -1,44 +1,51 @@
 .image-gallery-content {
-    width: 650px;
+    width: 800px;
     height: 433px;
-   
+
 }
 
-.image-gallery-thumbnail-image{
+
+   
+.image-gallery-thumbnail-image {
     border-radius: 5px;
+  
+
 }
+
 
 .info_text {
     font-size: 20px;
     font-weight: 400;
     margin: 0;
     padding: 0;
-   
+
 
 }
- h2{
+
+h2 {
     margin: 0;
     padding: 0;
- }
+}
+
 .info_text_parent {
     display: flex;
     justify-content: center;
     align-items: start;
     width: 650px;
-    height: 650px;
-
+    height: auto;
+    font-family:  'Roboto', sans-serif;
 }
 
 .sliderchik {
     display: flex;
     justify-content: space-evenly;
     align-items: start;
-    gap: 40px;
- 
-   
+    gap: 30px;
+    margin: 120px 0 0 0;
 }
 
-.button_contact{
+
+.button_contact {
     background-color: #2E6EFF;
     border: none;
     width: 135px;
@@ -47,32 +54,64 @@
     border-radius: 5px;
     cursor: pointer;
 }
-.button_contact:hover{
+
+.button_contact:hover {
     background-color: rgb(29, 96, 255)
 }
-.contact_div{
-    width: 99vh;
-    height: 130px;
+
+.contact_div {
+    width: 80vh;
+    height: 120px;
     background-color: #2E6EFF;
     position: absolute;
    
     color: white;
 }
-.contact_div_parent{
+
+.contact_div_parent {
     display: flex;
-    justify-content: left         ;
-     position: fixed;
+    justify-content: left;
+       position: fixed;
+       margin-left: 280px ;
 }
-.button_cancel{
-   color: white;
+
+.button_cancel {
+    color: white;
     float: right;
     border: none;
     background: none;
     cursor: pointer;
 }
-.contact_info{
+
+
+.contact_info {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items:center ;
+    align-items: center;
+}
+
+.loader_for_text {
+    display: none;
+}
+
+.loader_for_slider {
+    display: flex;
+    justify-content: center;
+    padding-top: 20vh;
+}
+.image-gallery-svg{
+    background: #ffffff80;
+    border-radius: 100px;
+    height: 10px;
+    
+}
+.image-gallery-left-nav .image-gallery-svg, .image-gallery-right-nav .image-gallery-svg {
+    width: 75px;
+    height: 75px
+}
+
+.Toastify__toast{
+    margin-left: 130%;
+    width: 300px;
 }
