@@ -59,12 +59,15 @@ const DetailedInfo = () => {
     }, [])
     return (
         <div className='sliderchik'>
+
+
+
             <div className='slider'> {loader ?
              <div className="loader_for_slider">
              <CircularProgress />
               </div>
               : <ImageGallery className='slider' showBullets={true} showPlayButton={false} showFullscreenButton={false} items={images} />}</div>
-            {/*{contact &&*/}
+            {/* {contact &&*/}
             {/*    <motion.div*/}
             {/*        variants={container}*/}
             {/*        initial="hidden"*/}
@@ -84,10 +87,11 @@ const DetailedInfo = () => {
             {/*            </div>*/}
             {/*        </div>*/}
             {/*    </motion.div>*/}
-            {/*}*/}
+            {/*} */}
                     {loader ?
                     <div className="loader_for_text">
                          <CircularProgress /> 
+
                     </div>
                      : <motion.div
                      variants={container}
