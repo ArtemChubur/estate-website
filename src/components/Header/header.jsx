@@ -8,22 +8,14 @@ import { container } from "../../constants/animate";
 import logo from "../../assets/logo.png"
 import './header.css'
 
-export const Header = ({ page }) => {
+const Header = () => {
+
     const [activePage, setActivePage] = useState(false);
     const route = useLocation()
     const [activeModalWindow, setActiveModalWindow] = useState(false);
     const [ticketError, setTicketError] = useState(false);
     const [loader, setLoader] = useState(false)
     const [ticketMessages, setTicketMessages] = useState('')
-
-    useEffect(() => {
-        if (route.pathname === '/about') {
-            setActivePage(true)
-        } else {
-            setActivePage(false)
-        }
-    }, [])
-
     const [ticket, setTicket] = useState({
         username: '',
         phone: ''
@@ -40,15 +32,47 @@ export const Header = ({ page }) => {
         } catch (error) {
             console.error('Ошибка при отправке данных:', error);
             setTicketMessages('Ошибка, попробуйте позже.')
-        } finally{
+        } finally {
             setLoader(false)
         }
     }
 
+    useEffect(() => {
+        if (route.pathname === '/about') {
+            setActivePage(true)
+        } else {
+            setActivePage(false)
+        }
+    }, [])
+
+
+
+    const [prevScrollPos, setPrevScrollPos] = useState(0);
+    const [visible, setVisible] = useState(true);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentScrollPos = window.scrollY;
+            setVisible(
+                (prevScrollPos > currentScrollPos &&
+                    prevScrollPos - currentScrollPos > 70) ||
+                currentScrollPos < 10
+            );
+            setPrevScrollPos(currentScrollPos);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, [prevScrollPos, visible]);
+
+
     return (
         <div>
             {activeModalWindow &&
-                <div className={`header-modal-window`}>
+                <div className="header-modal-window">
                     <motion.div
                         className={'headerParentsForm'}
                         variants={container}
@@ -61,8 +85,8 @@ export const Header = ({ page }) => {
                                 setTicketError(false)
                             }}
                             className={'header-close-btn'}>
-                                <CloseIcon />
-                            </button>
+                            <CloseIcon />
+                        </button>
                         {ticketError ?
                             <motion.div
                                 className='text_in_the_alert'
@@ -101,7 +125,7 @@ export const Header = ({ page }) => {
                     </motion.div>
                 </div>
             }
-            <header className="header">
+            <header className={`header ${visible ? 'active' : 'hidden'}`}>
                 <div className={'header-left'}>
                     <a href="../"><img src={logo} alt="" /></a>
                 </div>

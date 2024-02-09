@@ -152,3 +152,15 @@
 
 
 }
+
+
+
+.hidden {
+    transform: translateY(-100%);
+    transition: all 1s;
+  }
+  
+  .active {
+    transform: translateY(0);
+    transition: all 0.5s;
+  }
