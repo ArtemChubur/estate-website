@@ -5,7 +5,7 @@ import './Footer.css'
 import img from "../../assets/Rectangle 1.png";
 const Footer = () => {
     return (
-        <div className="Footer">
+        <footer className="Footer">
             <div className='left-fotr'>
                 <div>
                     <img src={logo} alt=""/>
@@ -46,7 +46,7 @@ const Footer = () => {
                         </ul>
             </div>
 
-        </div>
+        </footer>
     );
 };
 

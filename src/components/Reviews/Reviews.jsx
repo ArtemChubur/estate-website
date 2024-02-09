@@ -14,7 +14,7 @@ import { Keyboard, Scrollbar, Navigation, Pagination } from 'swiper/modules';
 
 const Reviews = (callbackfn, thisArg) => {
     return (
-        <div id={'ReviewsSection'} className='ReviewsComponent'>
+        <section id={'ReviewsSection'} className='ReviewsComponent'>
             <div className='ReviewsHeaderComponent'>
                 <h2>Наши клиенты говорят</h2>
                 <p href="/">Reviews</p>
@@ -62,7 +62,7 @@ const Reviews = (callbackfn, thisArg) => {
                     </Swiper>
                 </>
             </div>
-        </div>
+        </section>
     )
 }
 

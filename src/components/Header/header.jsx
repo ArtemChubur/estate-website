@@ -5,6 +5,7 @@ import './header.css'
 import {useLocation, useParams} from "react-router-dom";
 import { motion } from "framer-motion";
 import {container} from "../../constants/animate";
+import Main from "../../Pages/Main";
 
 export const Header = ({page}) => {
     const [activePage, setActivePage] = useState(false);
@@ -22,7 +23,7 @@ export const Header = ({page}) => {
     const [ticketError, setTicketError] = useState(false);
 
     return (
-        <div>
+        <header>
             {activeModalWindow &&
                 <div className={`header-modal-window`}>
                     <motion.div
@@ -82,6 +83,6 @@ export const Header = ({page}) => {
                     <button onClick={() => {setActiveModalWindow(true)}} className="header-button">+Добавить обьявление</button>
                 </div>
             </header>
-        </div>
+        </header>
     )
 }

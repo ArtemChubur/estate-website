@@ -58,7 +58,7 @@ const DetailedInfo = () => {
         getFlat()
     }, [])
     return (
-        <div className='sliderchik'>
+        <section className='sliderchik'>
 
 
 
@@ -120,7 +120,7 @@ const DetailedInfo = () => {
            }
                 
               
-        </div>
+        </section>
     )
 }
 
