@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from "react";
 import CloseIcon from '@mui/icons-material/Close';
 import logo from "../../assets/logo.png"
-import './header.css'
 import {useLocation, useParams} from "react-router-dom";
 import { motion } from "framer-motion";
 import {container} from "../../constants/animate";
 import Main from "../../Pages/Main";
+import photochka from '../../assets/photochka_city.jpg'
+import './header.css'
 
 export const Header = ({page}) => {
     const [activePage, setActivePage] = useState(false);
@@ -55,7 +56,7 @@ export const Header = ({page}) => {
                                 </div>
                             </motion.div>
                             :
-                            <div >
+                            <div  className='form_back-back'>
                                 <form className='formochki'>
                                     <input placeholder={'Ваше имя'} type="text"/>
                                     <input pattern='0[0-9]{3}[0-9]{3}[0-9]{3}' type="tel" placeholder={'Номер телефона'}/>
