@@ -86,7 +86,7 @@
 .header-modal-window .headerParentsForm form button {
     background: #2E6EFF;
     margin: 0 5px;
-    width: 200px;
+    width: 205px;
     height: 55px;
     color: white;
     border: none;
@@ -135,4 +135,10 @@
     to {
         transform: rotate(360deg);
     }
+}
+.formochki {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
