@@ -41,8 +41,8 @@ const Footer = () => {
                             <li><h2>Адрес</h2></li>
                             <li>г. Бишкек</li>
                             <li>Улица ** 17</li>
-                            <li>www.itobd.com</li>
-                            <li>+996 801 765 656</li>
+                            <li><a href="https://www.itobd.com">www.itobd.com</a></li>
+                            <li><a href="tel:+996801765656">+996 801 765 656</a></li>
                         </ul>
             </div>
 

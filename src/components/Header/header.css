@@ -109,7 +109,7 @@
 .modalWindowError {
     font-size: 24px;
     text-align: center;
-    color: red;
+    /* color: red; */
     margin-top: 10%;
 }
 

@@ -2,7 +2,6 @@ import React from 'react';
 import './Partners.css'
 import {partners} from "../../constants/partners";
 import { motion } from "framer-motion";
-import img from "../../assets/Rectangle 1.png";
 import {container} from "../../constants/animate";
 
 function Partners() {
@@ -20,7 +19,9 @@ function Partners() {
                                 whileInView="visible"
                                 viewport={{once: true}}
                             >
-                                <img src={item} alt=""/>
+                                <a target='_blank' href={item.link}>
+                                    <img src={item.logo} alt=""/>
+                                    </a>
                             </motion.div>
                         )
                     })}
