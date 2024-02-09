@@ -7,11 +7,13 @@ import {container} from "../../constants/animate";
 import Main from "../../Pages/Main";
 import photochka from '../../assets/photochka_city.jpg'
 import './header.css'
+import axios from "axios";
 
 export const Header = ({page}) => {
     const [activePage, setActivePage] = useState(false);
     const route = useLocation()
-    console.log(route)
+    const [activeModalWindow, setActiveModalWindow] = useState(false);
+    const [ticketError, setTicketError] = useState(false);
 
     useEffect(() => {
         if (route.pathname === '/about') {
@@ -20,8 +22,19 @@ export const Header = ({page}) => {
             setActivePage(false)
         }}, [])
 
-    const [activeModalWindow, setActiveModalWindow] = useState(false);
-    const [ticketError, setTicketError] = useState(false);
+    const [ticket, setTicket] = useState({
+        username: '',
+        phone: ''
+      });
+
+    async function sendTicket() {
+        try {
+            const response = await axios.post('http://localhost:3333/send-message', ticket);
+            console.log(response.data);
+          } catch (error) {
+            console.error('Ошибка при отправке данных:', error);
+          }
+    }
 
     return (
         <header>
@@ -57,10 +70,11 @@ export const Header = ({page}) => {
                             </motion.div>
                             :
                             <div  className='form_back-back'>
-                                <form className='formochki'>
-                                    <input placeholder={'Ваше имя'} type="text"/>
-                                    <input pattern='0[0-9]{3}[0-9]{3}[0-9]{3}' type="tel" placeholder={'Номер телефона'}/>
-                                <button onClick={() => {setTicketError(true)}} type="button">Отправить</button>
+                                <form onSubmit={null} className='formochki'>
+                                    <input onChange={(e) => setTicket(prevState => ({...prevState, username: e.target.value,}))} placeholder={'Ваше имя'} type="text"/>
+                                    <input onChange={(e) => setTicket(prevState => ({...prevState, phone: e.target.value,}))} pattern='0[0-9]{3}[0-9]{3}[0-9]{3}' type="tel" placeholder={'Номер телефона'}/>
+                                    {/* <button onClick={() => {setTicketError(true)}} type="button">Отправить</button> */}
+                                    <button onClick={sendTicket} type="button">Отправить</button>
                             </form>
                         </div>
                         }
