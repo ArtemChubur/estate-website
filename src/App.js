@@ -7,6 +7,7 @@ import {Header} from "./components/Header/header";
 import Footer from "./components/Footer/Footer";
 import AboutPage from "./Pages/AboutPage";
 
+
 function App() {
     return (
     <div className="App">

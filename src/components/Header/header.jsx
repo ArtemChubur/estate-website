@@ -55,8 +55,8 @@ export const Header = ({page}) => {
                                 </div>
                             </motion.div>
                             :
-                            <div>
-                                <form>
+                            <div >
+                                <form className='formochki'>
                                     <input placeholder={'Ваше имя'} type="text"/>
                                     <input pattern='0[0-9]{3}[0-9]{3}[0-9]{3}' type="tel" placeholder={'Номер телефона'}/>
                                 <button onClick={() => {setTicketError(true)}} type="button">Отправить</button>
