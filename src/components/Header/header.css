@@ -141,8 +141,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 35px;
-    padding-top: 10%;
+    gap: 25px;
+    padding-top: 7.5%;
 }
 .form_back-back{
     background:url("../../assets/photochka_city.jpg") no-repeat;
@@ -153,15 +153,3 @@
 
 
 }
-
-
-
-.hidden {
-    transform: translateY(-100%);
-    transition: all 1s;
-  }
-  
-  .active {
-    transform: translateY(0);
-    transition: all 0.5s;
-  }
