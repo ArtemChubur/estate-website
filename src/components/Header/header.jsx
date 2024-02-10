@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import CloseIcon from '@mui/icons-material/Close';
 import axios from "axios";
 import { useLocation, useParams } from "react-router-dom";
+import {useForm} from "react-hook-form";
 import CircularProgress from '@mui/material/CircularProgress';
 import { motion } from "framer-motion";
 import { container } from "../../constants/animate";
@@ -20,6 +21,12 @@ const Header = () => {
         username: '',
         phone: ''
     });
+    const {
+        register,
+        handleSubmit,
+        formState: {errors},
+        reset
+    } = useForm({mode: "onChange"})
 
     async function sendTicket() {
         setLoader(true)
@@ -45,32 +52,8 @@ const Header = () => {
         }
     }, [])
 
-
-
-    const [prevScrollPos, setPrevScrollPos] = useState(0);
-    const [visible, setVisible] = useState(true);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            const currentScrollPos = window.scrollY;
-            setVisible(
-                (prevScrollPos > currentScrollPos &&
-                    prevScrollPos - currentScrollPos > 70) ||
-                currentScrollPos < 10
-            );
-            setPrevScrollPos(currentScrollPos);
-        };
-
-        window.addEventListener('scroll', handleScroll);
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, [prevScrollPos, visible]);
-
-
     return (
-        <div>
+        <>
             {activeModalWindow &&
                 <div className="header-modal-window">
                     <motion.div
@@ -112,7 +95,21 @@ const Header = () => {
                                     </div>
                                     :
                                     <form className='formochki'>
-                                        <input onChange={(e) => setTicket(prevState => ({ ...prevState, username: e.target.value, }))} placeholder={'Ваше имя'} type="text" />
+                                        <input
+                                            {...register('username', {
+                                                required: 'Имя не может быть пустым',
+                                                minLength: {
+                                                    value: 1,
+                                                    message: 'Минимум 1 символ'
+                                                },
+                                                maxLength: {
+                                                    value: 16,
+                                                    message: 'Максимум 16 символов'
+                                                },
+                                            })}
+                                            onChange={(e) => setTicket(prevState => ({ ...prevState, username: e.target.value, }))}
+                                            placeholder={'Ваше имя'}
+                                            type="text" />
                                         <input onChange={(e) => setTicket(prevState => ({ ...prevState, phone: e.target.value, }))} pattern='0[0-9]{3}[0-9]{3}[0-9]{3}' type="tel" placeholder={'Номер телефона'} />
                                         <button onClick={() => {
                                             sendTicket()
@@ -125,9 +122,9 @@ const Header = () => {
                     </motion.div>
                 </div>
             }
-            <header className={`header ${visible ? 'active' : 'hidden'}`}>
+            <div className={`header`}>
                 <div className={'header-left'}>
-                    <a href="../"><img src={logo} alt="" /></a>
+                    <a href="../"><img src={logo} alt=""/></a>
                 </div>
                 <div className="header-right">
                     <a
@@ -139,10 +136,13 @@ const Header = () => {
                         className={`header-link ${activePage && 'header-link-activ'}`}>
                         О нас</a>
 
-                    <button onClick={() => { setActiveModalWindow(true) }} className="header-button">+Добавить обьявление</button>
+                    <button onClick={() => {
+                        setActiveModalWindow(true)
+                    }} className="header-button">+Добавить обьявление
+                    </button>
                 </div>
-            </header>
-        </div>
+            </div>
+        </>
     )
 }
 export default Header;

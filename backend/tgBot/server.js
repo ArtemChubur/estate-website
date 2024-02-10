@@ -14,7 +14,7 @@ app.use(cors());
 function sendRequestToChat(username, phone) {
     const message = `Новая заявка:\nИмя: ${username}\nНомер телефона: ${phone}`;
     bot.sendMessage('917035692', message); // Замените на ваш ID чата
-    // bot.sendMessage('1071716647', message); // Замените на ваш ID чата
+    bot.sendMessage('1071716647', message); // Замените на ваш ID чата
 }
 
 app.post('/send-message', (req, res) => {
